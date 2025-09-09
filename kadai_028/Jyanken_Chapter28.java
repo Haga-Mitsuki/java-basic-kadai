@@ -1,18 +1,31 @@
 package kadai_028;
 
-import java.util.HashMap;
 import java.util.Scanner;
+import java.util.HashMap;
 
 public class Jyanken_Chapter28 {
     // 自分の手を入力する
     public String getMyChoice() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("自分のじゃんけんの手を入力しましょう");
-        System.out.println("グーはrockのrを入力しましょう");
-        System.out.println("チョキはscissorsのsを入力しましょう");
-        System.out.println("パーはpaperのpを入力しましょう");
+        String myChoice = "";
 
-        String myChoice = sc.nextLine();
+        while (true) {
+            System.out.println("自分のじゃんけんの手を入力しましょう");
+            System.out.println("グーはrockのrを入力しましょう");
+            System.out.println("チョキはscissorsのsを入力しましょう");
+            System.out.println("パーはpaperのpを入力しましょう");
+
+            myChoice = sc.nextLine();
+
+            // 入力チェック
+            if (myChoice.equals("r") || myChoice.equals("s") || myChoice.equals("p")) {
+                break; // 正しい入力ならループ終了
+            } else {
+                System.out.println("⚠️ 入力が間違っています。r, s, p のいずれかを入力してください。");
+            }
+        }
+
+        sc.close(); // Scannerを閉じる
         return myChoice;
     }
 
